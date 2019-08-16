@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.scss";
 
-import SmurfList from './SmurfList'
+import SmurfList from './SmurfList';
+import SmurfForm from './SmurfForm';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <div>Welcome to your state management version of Smurfs!</div>
       <div>Start inside of your `src/index.js` file!</div>
       <div>Have fun!</div>
+      <SmurfForm />
       <SmurfList />
     </div>
   );
