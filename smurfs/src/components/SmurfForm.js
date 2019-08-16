@@ -1,22 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const submitHandler = event => {
-  console.log("submit button clicked");
-  event.preventDefault();
-  console.log(newSmurf);
-  event.target.reset();
-
-  //   axios.post('http://localhost:3333/smurfs', form)
-};
-
-const changeHandler = event => {
-    
-        setNewSmurf(event.target.name = event.target.value)
-    
-   
-      
-    }
 
 const SmurfForm = () => {
   const [newSmurf, setNewSmurf] = useState({
@@ -25,6 +9,25 @@ const SmurfForm = () => {
     height: "",
     id: Date.now()
   });
+
+  const submitHandler = event => {
+    console.log("submit button clicked");
+    event.preventDefault();
+    console.log("new smurf", newSmurf);
+    event.target.reset();
+  
+    //   axios.post('http://localhost:3333/smurfs', {newSmurf})
+  //   .then(res => {
+  //     console.log(res)
+  //     setStatus(res.data)})
+  // .catch(err => console.log(err.response))
+  };
+  
+  const changeHandler = event => {
+      
+          setNewSmurf({...newSmurf, [event.target.name]: event.target.value})
+      }
+  
 
   return (
     <form onSubmit={submitHandler}>
