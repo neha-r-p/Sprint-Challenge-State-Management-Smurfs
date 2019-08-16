@@ -1,13 +1,30 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const submitHandler = event => {
   console.log("submit button clicked");
   event.preventDefault();
+  console.log(newSmurf);
   event.target.reset();
+
+  //   axios.post('http://localhost:3333/smurfs', form)
 };
 
+const changeHandler = event => {
+    
+        setNewSmurf(event.target.name = event.target.value)
+    
+   
+      
+    }
+
 const SmurfForm = () => {
-  const [form, setForm] = useState();
+  const [newSmurf, setNewSmurf] = useState({
+    name: "",
+    age: "",
+    height: "",
+    id: Date.now()
+  });
 
   return (
     <form onSubmit={submitHandler}>
@@ -18,9 +35,8 @@ const SmurfForm = () => {
           type="text"
           name="name"
           placeholder="name"
-          onChange={event => {
-            setForm(event.target.value);
-          }}
+          value={newSmurf.name}
+          onChange={changeHandler}
         />
       </label>
       <label>
@@ -29,9 +45,8 @@ const SmurfForm = () => {
           type="number"
           name="age"
           placeholder="age"
-          onChange={event => {
-            setForm(event.target.value);
-          }}
+          value={newSmurf.age}
+          onChange={changeHandler}
         />
       </label>
       <label>
@@ -40,9 +55,8 @@ const SmurfForm = () => {
           type="text"
           name="height"
           placeholder="height (e.g. 5cm)"
-          onChange={event => {
-            setForm(event.target.value);
-          }}
+          value={newSmurf.height}
+          onChange={changeHandler}
         />
       </label>
       <button>Add to Village</button>
