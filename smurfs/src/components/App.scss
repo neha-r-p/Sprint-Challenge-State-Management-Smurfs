@@ -26,3 +26,22 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin:15px auto;
+  width: 400px;
+}
+
+form>button {
+  width: 150px;
+  height: 25px;
+  font-size: 16px;
+  margin: 15px auto;
+}
+
+form>label {
+  margin: 15px auto;
+  height: 25px;
+}

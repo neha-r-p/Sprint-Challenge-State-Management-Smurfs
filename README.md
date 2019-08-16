@@ -23,10 +23,24 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+Context API solves the need to simplify state management by storing props in an object that is accessible to all levels of the tree without a need for "prop-drilling" (passing props down to each child, grandchild, etc to be able to be used)
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+ 
+Actions are simply objects that are created from user interactions (events firing). It typically describes the action which is then dispatched to the reducer. Action objects include 'type' to avoid bugs in the code. Reducers are pure functions that accept the previous state, and creates a copy and returns the new state based on the action to the store. The store is an object which holds the state, and the state is immutable. Data flows in one direction, so the state will be replaced in the store with a completely new object by the reducer.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is the state across the entire application that can be passed down to components, whereas component state is state stored in that individual component. If there are multiple states used in multiple components, it is best to manage state in the application (using context API or Redux) if our app is large enough with many component layers.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux thunk is a middleware which allows for the ability to handle asynchronous operations within our app by intercepting the flow of data from the action to the reducer. If a function is returned instead of an action, thunk will invoke the function and pass in dispatch as an argument. Using asynchronous functions in this way will allow us to handle async in redux
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+My favorite state management system is Redux because I've been working with it for 2 days and remember it.
 
 ## Project Set Up
 
